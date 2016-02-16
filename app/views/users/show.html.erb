@@ -1,0 +1,18 @@
+<h1><%="#{@user.name}'s Profile"%></h1>
+<p><%= @user.name %></p>
+<p><%= @user.email %></p>
+
+<h2>Playlists</h2>
+  <% @user.playlists.each do |playlist| %>
+    <p><%= playlist.name %></p>
+  <% end %>
+<h2>Bookmarks</h2>
+  <% @user.bookmarks.each do |bookmark| %>
+    <p><%= bookmarks %></p>
+  <% end %>
+
+<% if @user.id == current_user.id %>
+  <h2>Profile Settings</h2>
+  <%= link_to "Edit", edit_user_path(current_user) %>
+  <%= link_to "Delete Acouunt", user_path(current_user), method: "delete" %>
+<% end %>

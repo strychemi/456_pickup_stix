@@ -4,6 +4,7 @@ gem 'faker'
 
 group :development, :test do
   gem 'hirb'
+  gem "better_errors"
 end
 
 group :test do
@@ -19,7 +20,7 @@ group :test do
   gem 'shoulda-matchers'
 end
 
-
+gem "binding_of_caller"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # Use sqlite3 as the database for Active Record
@@ -65,4 +66,3 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
-

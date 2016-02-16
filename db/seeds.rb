@@ -64,18 +64,20 @@ users = [
   {
     :first_name => 'foo',
     :last_name => 'bar',
-    :email => 'foo@bar.com'
+    :email => 'foo@bar.com',
+    :password => 'qwer'
   }
 ]
 (MULTIPLIER * NUM_USERS).times do
   first_name = ModelHelper.first_name
   last_name = ModelHelper.last_name
   email = ModelHelper.email("#{first_name} #{last_name}")
-  
+
   users << {
     :first_name => first_name,
     :last_name => last_name,
-    :email => email
+    :email => email,
+    :password => 'qwer'
   }
 end
 User.create(users)
@@ -182,7 +184,7 @@ already_followed_ids = []
 
   possible_followers = users.where('id != ?', followed.id).to_a
   already_followed_ids << followed.id
-  
+
   NUM_FOLLOWINGS.times do
     follower = possible_followers.pop
     followings << {
@@ -200,15 +202,3 @@ followings = Following.all
 # ----------------------------------------
 
 puts 'Done!'
-
-
-
-
-
-
-
-
-
-
-
-

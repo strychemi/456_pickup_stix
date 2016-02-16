@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :artists, only: [:index, :show]
+  resources :users
+  resource :session, only: [:new, :create, :destroy]
+  resources :songs
+  resources :playlists
+  
+  get "/login" => "sessions#new"
+  delete "logout" => "sessions#destroy"
+  root 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
